@@ -2,8 +2,8 @@ import React from 'react'
 
 import {Routes, Route} from 'react-router-dom'
 
-import Home from './home'
-import Table from '././components/table'
+import Home from '././views/home'
+import Table from '././views/table'
 
 const App = () => (
   <div className='lx:container mx-auto'>
