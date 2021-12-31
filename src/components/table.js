@@ -5,7 +5,7 @@ const Table = () => {
     const [posts, setPosts] = useState([])
 
     const getPosts = async () => {
-        await fetch('https://localhost:7157/get-posts', {
+        await fetch(process.env.REACT_APP_API_URL + '/get-posts', {
             method: 'GET',
             mode: 'cors',
             headers: {
