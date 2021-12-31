@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kb46QVkmR3INoBst3jCLVyikvIKOwis95xNnKJuwhmjQtAqTh0f5raYqAjjif/zUAVbSwHAP4bx8SomMYvVrMg==",
+  "dgSpecHash": "QN4UEX2gzqfr7EJQ9rL0kXgsFujHT+Llnbqmi00ouqE6J7hJqA1i5UpVJHC+6hDQVMTdDSLEnc5oP3D0onca5g==",
   "success": true,
-  "projectFilePath": "C:\\Software\\C#\\ASP\\API\\ServerCRUD\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj",
+  "projectFilePath": "C:\\Software\\React\\client\\webApi\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Personal\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Personal\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -3,6 +3,20 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//CORS
+builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("CORSPolicy",
+            builder =>
+            {
+                builder
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                //.WithOrigins("http: //localhost:3000")
+                .AllowAnyOrigin();
+            });
+});
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -25,6 +39,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//Cors
+app.UseCors("CORSPolicy");
+
 //Route
 app.MapGet("/get-posts", async () => await PostRespository.GetPostsAsync())
     .WithTags("Post Endpoints");

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Software\\C#\\ASP\\API\\ServerCRUD\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj": {}
+    "C:\\Software\\React\\client\\webApi\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj": {}
   },
   "projects": {
-    "C:\\Software\\C#\\ASP\\API\\ServerCRUD\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj": {
+    "C:\\Software\\React\\client\\webApi\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Software\\C#\\ASP\\API\\ServerCRUD\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj",
+        "projectUniqueName": "C:\\Software\\React\\client\\webApi\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj",
         "projectName": "aspnetserver",
-        "projectPath": "C:\\Software\\C#\\ASP\\API\\ServerCRUD\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj",
+        "projectPath": "C:\\Software\\React\\client\\webApi\\ASPNetCoreServer\\aspnetserver\\aspnetserver.csproj",
         "packagesPath": "C:\\Users\\Personal\\.nuget\\packages\\",
-        "outputPath": "C:\\Software\\C#\\ASP\\API\\ServerCRUD\\ASPNetCoreServer\\aspnetserver\\obj\\",
+        "outputPath": "C:\\Software\\React\\client\\webApi\\ASPNetCoreServer\\aspnetserver\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
