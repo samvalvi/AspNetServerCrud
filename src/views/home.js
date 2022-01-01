@@ -1,7 +1,8 @@
 import React from 'react'
-import '../styles/input.css'
 
 import {NavLink} from 'react-router-dom'
+
+import '../styles/input.css'
 
 const Home = () => {
 

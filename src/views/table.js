@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import '../styles/input.css'
 
 import {NavLink} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-const Table = () => {
+import '../styles/input.css'
+
+const Table = ({setPost}) => {
     const [posts, setPosts] = useState([])
 
     const getPosts = async () => {
-        await fetch(process.env.REACT_APP_API_URL + '/get-posts', {
+        await fetch(process.env.REACT_APP_API_URL_DEVELOPMENT + '/get-posts', {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -21,6 +23,11 @@ const Table = () => {
             setPosts(data)
         })
         .catch(err => console.log(err))
+    }
+
+    const addPost = (id) => {
+        const post = posts.find(x => x.postId === id);
+        setPost(post);
     }
 
     useEffect(() => {
@@ -52,10 +59,15 @@ const Table = () => {
                                     <td className='px-4 py-3 border border-gray-300'>
                                         <div className='flex flex-row gap-4'>
                                             <div>
-                                                <button className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100'>Update</button>                                    
+                                                <NavLink className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100' 
+                                                id="editar"
+                                                to={`/edit/${item.postId}`}
+                                                onClick={() => addPost(item.postId)}>
+
+                                                Update</NavLink>                                    
                                             </div>
                                             <div>
-                                                <button className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100'>Delete</button>
+                                                <button className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100' id="eliminar">Delete</button>
                                             </div> 
                                         </div>
                                     </td>
@@ -66,16 +78,7 @@ const Table = () => {
                                 <td className='px-4 py-3 border border-gray-300'>Loading...</td>
                                 <td className='px-4 py-3 border border-gray-300'>Loading...</td>
                                 <td className='px-4 py-3 border border-gray-300'>Loading...</td>
-                                <td className='px-4 py-3 border border-gray-300'>
-                                    <div className='flex flex-row gap-4'>
-                                        <div>
-                                            <button className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100' disabled>Update</button>                                    
-                                        </div>
-                                        <div>
-                                            <button className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100' disabled>Delete</button>
-                                        </div> 
-                                    </div>
-                                </td>
+                                <td className='px-4 py-3 border border-gray-300'></td>
                             </tr>
                         }
                 </tbody>
@@ -88,3 +91,8 @@ const Table = () => {
 }
 
 export default Table;
+
+
+Table.propTypes = {
+    setPost: PropTypes.func.isRequired
+}
