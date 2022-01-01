@@ -64,14 +64,14 @@ const Table = ({setPost}) => {
                                     <td className='px-4 py-3 border border-gray-300'>
                                         <div className='flex flex-row gap-4'>
                                             <div>
-                                                <NavLink className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100' 
+                                                <NavLink className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100 shadow-md' 
                                                 id="editar"
                                                 to={`/edit/${item.postId}`}
                                                 onClick={() => addPost(item.postId)}>
                                                 Editar</NavLink>                                    
                                             </div>
-                                            <div>
-                                                <NavLink className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100' 
+                                            <div> 
+                                                <NavLink className='flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100 shadow-md' 
                                                 id="eliminar"
                                                 to={`/delete/${item.postId}`}
                                                 onClick={()=> addPost(item.postId)}>
