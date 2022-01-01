@@ -79,7 +79,7 @@ app.MapPost("/create-post", async (Post postCreated) =>
     }
 ).WithTags("Post Endpoints.");
 
-app.MapPost("/update-post", async (Post postToUpdate) =>
+app.MapPut("/update-post", async (Post postToUpdate) =>
     {
         bool updateSuccesful = await PostRespository.UpdatePostAsync(postToUpdate);
         if(updateSuccesful)

@@ -1,18 +1,43 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types' 
 
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 import '../styles/input.css'
 
 const Delete = ({post}) => {
     const {postId, title, content} = post;
+    const [msg, setMsg] = useState("");
+    let navigate = useNavigate();
 
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
         const body = {
             id: postId
         }
+
+        await fetch(process.env.REACT_APP_API_URL_DEVELOPMENT + `/delete-post/${postId}`,{
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(body)}
+        )
+        .then(res => res.json())
+        .then(data => {
+            if(data === 'Post deleted.'){
+                setMsg("Post eliminado.")
+                setTimeout(() => {
+                    navigate('/table')
+                },800)
+            }else{
+                setMsg("No fue posible eliminar el Post.")
+            }
+        })
+        .catch(err => console.log(err))
     }
 
     return (
@@ -22,6 +47,9 @@ const Delete = ({post}) => {
                     <div className='flex flex-row justify-center'>
                         <div className='title'>
                             <h1 className='font-semibold text-2xl'>Eliminar Post</h1>
+                            <div>
+                                {(msg)? <p className='text-red-500 text-center'>{msg}</p> : null}
+                            </div>
                         </div>
                     </div>
 
@@ -48,8 +76,15 @@ const Delete = ({post}) => {
                     </div>
 
                     <div className='pt-4 flex flex-row justify-center gap-2'>
-                        <button id="actualizar" className="flex items-center p-4 text-gray-100 bg-gray-500 rounded-lg shadow-xs cursor-pointer hover:bg-gray-400 hover:text-gray-50 shadow-md" onClick={(e)=>handleSubmit(e)}>Eliminar</button>
-                        <NavLink type="button" className="flex items-center p-4 text-gray-100 bg-gray-500 rounded-lg shadow-xs cursor-pointer hover:bg-gray-400 hover:text-gray-50 shadow-md" to="/table">Cancelar</NavLink>
+                        <button id="actualizar" className="flex items-center p-4 text-gray-100 bg-gray-500 rounded-lg shadow-xs cursor-pointer hover:bg-gray-400 hover:text-gray-50 shadow-md" 
+                            onClick={(e)=>handleSubmit(e)}>
+                            Eliminar
+                        </button>
+
+                        <NavLink 
+                            type="button" 
+                            className="flex items-center p-4 text-gray-100 bg-gray-500 rounded-lg shadow-xs cursor-pointer hover:bg-gray-400 hover:text-gray-50 shadow-md" 
+                            to="/table">Cancelar</NavLink>
                     </div>
                 </form>
             </div>

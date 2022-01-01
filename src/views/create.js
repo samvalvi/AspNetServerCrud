@@ -7,9 +7,16 @@ import '../styles/input.css'
 const Create = () => {
     const [titlePost, setTitlePost] = useState("")
     const [contentPost, setContentPost] = useState("")
+    const [msg, setMsg] = useState("");
 
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
+
+        if(titlePost.length === 0 || contentPost.length === 0){
+            setMsg("Todos los campos son obligatorios")
+            return;
+        }
+
         const body = {
             title: titlePost,
             content: contentPost
@@ -18,7 +25,26 @@ const Create = () => {
         setTitlePost('');
         setContentPost('');
 
-        console.log(body)
+        await fetch(process.env.REACT_APP_API_URL_DEVELOPMENT + '/create-post',{ 
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+                },
+            body: JSON.stringify(body)
+            })
+            .then(res => res.json())
+            .then(data => {
+                    if(data === 'Post created.'){
+                        setMsg("Post creado.")
+                    }else{
+                        setMsg("No fue posible crear el Post.")
+                    }
+                    console.log(data)
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -29,6 +55,9 @@ const Create = () => {
                     <div className='flex flex-row justify-center'>
                         <div className='title'>
                             <h1 className='font-semibold text-2xl'>Crear nuevo Post</h1>
+                            <div>
+                                {(msg)? <p className='text-red-500 text-center'>{msg}</p> : null}
+                            </div>
                         </div>
                     </div>
 

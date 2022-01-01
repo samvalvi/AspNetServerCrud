@@ -21,7 +21,7 @@ namespace aspnetserver.Data
             using var db = new AppDBContext();
             try
             {
-                await db.AddAsync(post);
+                await db.Posts.AddAsync(post);
                 return await db.SaveChangesAsync() >= 1;
             }catch (Exception)
             {
@@ -35,8 +35,8 @@ namespace aspnetserver.Data
             using var db = new AppDBContext();
             try
             {
-                db.Update(post);
-                return await db.SaveChangesAsync () >= 1;
+                db.Posts.Update(post);
+                return await db.SaveChangesAsync() >= 1;
             }catch (Exception)
             {
                 return false;
@@ -49,7 +49,7 @@ namespace aspnetserver.Data
             try
             {
                 var postToDelete = await GetPostByIdAsync(postId);
-                db.Remove(postToDelete);
+                db.Posts.Remove(postToDelete);
                 return await db.SaveChangesAsync() >= 1;
 
             }
