@@ -5,7 +5,8 @@ import {Routes, Route} from 'react-router-dom'
 import Home from './views/home'
 import Table from './views/table'
 import Create from './views/create'
-import Edit from './views/editar'
+import Edit from './views/edit'
+import Delete from './views/delete'
 
 const App = () => {
   const [post, setPost] = useState({})
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/table' element={<Table setPost={setPost} />} />
         <Route path='/create' element={<Create />} />
         <Route path='/edit/:id' element={<Edit post={post} />} />
+        <Route path='/delete/:id' element={<Delete post={post} />} />
       </Routes>
     </div>
   )

@@ -24,7 +24,14 @@ const Create = () => {
     return (
         
             <div className='w-full grid place-items-center h-screen font-sans p-12 bg-white'>
+
                 <form method='post' className='w-2/6'>
+                    <div className='flex flex-row justify-center'>
+                        <div className='title'>
+                            <h1 className='font-semibold text-2xl'>Crear nuevo Post</h1>
+                        </div>
+                    </div>
+
                     <div className='flex flex-row gap-2 pb-2'>
                         <div className='form-group w-full'>
                             <label htmlFor="title" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Post title</label>
