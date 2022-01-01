@@ -36,9 +36,14 @@ const Table = ({setPost}) => {
 
     return (
         <div className='xl:container container mx-auto grid place-items-center font-sans'>
-            <div className='title p-3'>
-                <h1 className='font-semibold text-2xl'>Posts</h1>
+            
+            <div className='p-3 flex flex-row justify-center gap-6'>
+                <div className='title'>
+                    <h1 className='font-semibold text-2xl'>Posts</h1>
+                </div>
             </div>
+           
+
             <table className='table-fixed border-collapse border border-gray-400 shadow-md'>
                 <thead>
                     <tr className='text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600'>
@@ -83,9 +88,16 @@ const Table = ({setPost}) => {
                         }
                 </tbody>
             </table>
-            <div className='p-3'>
-                <NavLink className='flex items-center p-4 text-gray-100 bg-gray-500 rounded-lg shadow-xs cursor-pointer hover:bg-gray-400 hover:text-gray-50 shadow-md' to="/">Regresar</NavLink>
+            
+            <div className='flex flex-row justify-center gap-6'>
+                <div className='p-3'>
+                    <NavLink className='flex items-center p-4 text-gray-100 bg-gray-500 rounded-lg shadow-xs cursor-pointer hover:bg-gray-400 hover:text-gray-50 shadow-md' to="/">Regresar</NavLink>
+                </div>
+                <div className='p-3'>
+                    <NavLink type="button" className="flex items-center p-4 text-gray-100 bg-gray-500 rounded-lg shadow-xs cursor-pointer hover:bg-gray-400 hover:text-gray-50 shadow-md" to="/create">Nuevo Post</NavLink>
+                </div>
             </div>
+            
         </div>
     )
 }

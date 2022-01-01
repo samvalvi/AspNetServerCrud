@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 import '../styles/input.css'
 
-const Editar = ({post, setPost}) => {
+const Edit = ({post}) => {
     const {postId, title, content} = post
     const [titlePost, setTitlePost] = useState("")
     const [contentPost, setContentPost] = useState("")
@@ -17,14 +17,12 @@ const Editar = ({post, setPost}) => {
             title: titlePost,
             content: contentPost
         }
-
-        console.log(body)
     }
 
     return (
         
             <div className='w-full grid place-items-center h-screen font-sans p-12 bg-white'>
-                <form method='post' className='w-9/12'>
+                <form method='post' className='w-2/6'>
                     <div className='flex flex-row gap-2 pb-2'>
                         <div className='form-group'>
                             <label htmlFor="postId" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Post id</label>
@@ -47,7 +45,7 @@ const Editar = ({post, setPost}) => {
                         required defaultValue={content} resize="none" onChange={(e)=> setContentPost(e.target.value) }/>
                     </div>
 
-                    <div className='pt-4 flex flex-row gap-2'>
+                    <div className='pt-4 flex flex-row justify-center gap-2'>
                         <button id="actualizar" className="flex items-center p-4 text-gray-100 bg-gray-500 rounded-lg shadow-xs cursor-pointer hover:bg-gray-400 hover:text-gray-50 shadow-md" onClick={(e)=>handleSubmit(e)}>Actualizar</button>
                         <NavLink type="button" className="flex items-center p-4 text-gray-100 bg-gray-500 rounded-lg shadow-xs cursor-pointer hover:bg-gray-400 hover:text-gray-50 shadow-md" to="/table">Cancelar</NavLink>
                     </div>
@@ -56,9 +54,8 @@ const Editar = ({post, setPost}) => {
     )
 }
 
-export default Editar;
+export default Edit;
 
-Editar.propTypes = {
-    post: PropTypes.object.isRequired,
-    setPost: PropTypes.func.isRequired
+Edit.propTypes = {
+    post: PropTypes.object.isRequired
 }

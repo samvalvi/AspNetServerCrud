@@ -4,7 +4,8 @@ import {Routes, Route} from 'react-router-dom'
 
 import Home from './views/home'
 import Table from './views/table'
-import Editar from './views/editar'
+import Create from './views/create'
+import Edit from './views/editar'
 
 const App = () => {
   const [post, setPost] = useState({})
@@ -14,7 +15,8 @@ const App = () => {
       <Routes>
         <Route path='/*' element={<Home />} />
         <Route path='/table' element={<Table setPost={setPost} />} />
-        <Route path='/edit/:id' element={<Editar post={post} setPost={setPost} />} />
+        <Route path='/create' element={<Create />} />
+        <Route path='/edit/:id' element={<Edit post={post} />} />
       </Routes>
     </div>
   )
